@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.31)  17 MAY 2026 22:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.31)  18 MAY 2026 01:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -425,11 +425,11 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <14.4> on input line 63.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 63.
-<figures//chi_squared.png, id=17, 521.7894pt x 338.9463pt>
+<figures//chi_squared.png, id=17, 521.7894pt x 352.4367pt>
 File: figures//chi_squared.png Graphic file (type png)
 <use figures//chi_squared.png>
 Package pdftex.def Info: figures//chi_squared.png  used on input line 90.
-(pdftex.def)             Requested size: 355.08984pt x 230.66145pt.
+(pdftex.def)             Requested size: 355.08984pt x 239.84201pt.
  [2 <./figures//chi_squared.png>]
 <figures//gap_target_7.png, id=24, 515.526pt x 338.9463pt>
 File: figures//gap_target_7.png Graphic file (type png)
@@ -462,28 +462,29 @@ File: figures//ks_pvalue_by_k.png Graphic file (type png)
 Package pdftex.def Info: figures//ks_pvalue_by_k.png  used on input line 206.
 (pdftex.def)             Requested size: 218.51521pt x 148.23692pt.
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 213.
-<figures//comparison_chi_squared_uniform.png, id=39, 627.5445pt x 374.5995pt>
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 227.
+ [5 <./figures//ks_statistic_by_k.png> <./figures//ks_pvalue_by_k.png>]
+<figures//comparison_chi_squared_uniform.png, id=44, 683.4333pt x 402.5439pt>
 File: figures//comparison_chi_squared_uniform.png Graphic file (type png)
 <use figures//comparison_chi_squared_uniform.png>
 Package pdftex.def Info: figures//comparison_chi_squared_uniform.png  used on i
-nput line 243.
-(pdftex.def)             Requested size: 409.71692pt x 244.57281pt.
- [5 <./figures//ks_statistic_by_k.png> <./figures//ks_pvalue_by_k.png>]
-<figures//comparison_ks_uniform.png, id=46, 715.7139pt x 286.9119pt>
+nput line 257.
+(pdftex.def)             Requested size: 409.71692pt x 241.33163pt.
+<figures//comparison_ks_uniform.png, id=45, 715.7139pt x 286.9119pt>
 File: figures//comparison_ks_uniform.png Graphic file (type png)
 <use figures//comparison_ks_uniform.png>
 Package pdftex.def Info: figures//comparison_ks_uniform.png  used on input line
- 250.
+ 264.
 (pdftex.def)             Requested size: 409.71692pt x 164.25069pt.
-<figures//comparison_gap_uniform.png, id=47, 733.0587pt x 352.4367pt>
+ [6 <./figures//comparison_chi_squared_uniform.png>]
+<figures//comparison_gap_uniform.png, id=51, 733.0587pt x 352.4367pt>
 File: figures//comparison_gap_uniform.png Graphic file (type png)
 <use figures//comparison_gap_uniform.png>
 Package pdftex.def Info: figures//comparison_gap_uniform.png  used on input lin
-e 257.
+e 271.
 (pdftex.def)             Requested size: 409.71692pt x 196.98677pt.
- [6 <./figures//comparison_chi_squared_uniform.png> <./figures//comparison_ks_u
-niform.png>] [7 <./figures//comparison_gap_uniform.png>] (out/report.aux) ) 
+ [7 <./figures//comparison_ks_uniform.png> <./figures//comparison_gap_uniform.p
+ng>] (out/report.aux) ) 
 Here is how much of TeX's memory you used:
  6265 strings out of 478994
  95391 string characters out of 5858183
@@ -491,25 +492,24 @@ Here is how much of TeX's memory you used:
  23651 multiletter control sequences out of 15000+600000
  461274 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,8n,77p,618b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/us
-r/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texliv
-e/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2021/tex
-mf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2021/texmf-dist/fo
-nts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/
-lm/lm-mathit.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx
-12.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></
-usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/
-texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/20
-21/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2021/texmf-d
-ist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/t
-ype1/public/lm/lmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
-/lm/lmr17.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr8.pf
-b></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/lo
-cal/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive
-/2021/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2021/texm
-f-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on out/report.pdf (7 pages, 1137422 bytes).
+ 69i,8n,77p,630b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/l
+m-ec.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{
+/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local
+/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2021/
+texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/texlive/2021/texmf-dist
+/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2021/texmf-dist/fonts/typ
+e1/public/lm/lmcsc10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public
+/lm/lmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10
+.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr
+/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texl
+ive/2021/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2021/te
+xmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2021/texmf-dist/fo
+nts/type1/public/lm/lmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/pu
+blic/lm/lmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lm
+sy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></
+usr/local/texlive/2021/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on out/report.pdf (7 pages, 1187685 bytes).
 PDF statistics:
  106 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream

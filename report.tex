@@ -210,6 +210,20 @@ Pour $k=1$ et $k=2$, les valeurs générées ne peuvent prendre qu'un petit nomb
 \label{fig:ks_by_k}
 \end{figure}
 
+\subsection{Interprétation des rejets isolés}
+
+Deux résultats particuliers méritent une discussion : le gap test pour le chiffre cible 4 donne une p-value de 0.027408, et le test de Kolmogorov--Smirnov pour la taille de bloc $k=7$ donne une p-value de 0.022159. Dans les deux cas, la p-value est inférieure au seuil de $5\%$, donc on rejette $H_0$ pour le test considéré.
+
+Cela ne signifie pas pour autant que l'ensemble des décimales de $\pi$ ou que le générateur construit à partir de celles-ci présente un défaut global. Plusieurs raisons peuvent conduire à ce type de résultat.
+
+D'abord, plusieurs tests sont réalisés simultanément. Pour le gap test, dix chiffres cibles sont testés. Même si les données étaient parfaitement compatibles avec le modèle, il resterait plausible d'observer occasionnellement une p-value inférieure à $5\%$ simplement parce que l'on répète le test plusieurs fois. De même, pour l'étude du générateur, le test KS est appliqué pour neuf valeurs de $k$. Le cas $k=7$ peut donc correspondre à une fluctuation détectée parmi plusieurs essais.
+
+Ensuite, les tailles d'échantillon sont grandes : un million de décimales pour l'étude des chiffres, et $142\,857$ valeurs pour le générateur lorsque $k=7$. Avec de grands échantillons, les tests statistiques deviennent sensibles à de très petits écarts entre les fréquences observées et les fréquences attendues. Une p-value faible peut donc signaler un écart mesurable, sans que cet écart soit nécessairement important d'un point de vue pratique.
+
+Enfin, les tests ne mesurent pas exactement la même propriété. Le $\chi^2$ sur les chiffres étudie l'uniformité des fréquences, le gap test étudie les écarts entre occurrences, et le test KS étudie l'écart entre une fonction de répartition empirique et une loi uniforme continue. Il est donc possible qu'un test rejette ponctuellement $H_0$ alors que les autres résultats restent compatibles avec les hypothèses étudiées.
+
+Ces deux p-values doivent donc être présentées comme des anomalies locales ou des fluctuations statistiques possibles, et non comme une preuve d'un comportement non pseudo-aléatoire. L'interprétation globale repose sur l'ensemble des tests, pas sur une seule p-value isolée.
+
 \section{Comparaison avec \texttt{random.random()} de Python}
 
 Le générateur basé sur $\pi$ avec $k=6$ est comparé à \texttt{random.random()} de Python. Pour rendre la comparaison reproductible, le script fixe la graine de Python à 12345. Les deux générateurs produisent $166\,666$ valeurs.
@@ -261,7 +275,7 @@ Pour les trois tests, les p-values obtenues sont supérieures à $5\%$ pour les 
 
 \section{Conclusion}
 
-Les tests réalisés sur les décimales de $\pi$ donnent des résultats globalement compatibles avec une répartition uniforme des chiffres et avec le modèle attendu pour les écarts entre occurrences. Le test du $\chi^2$ sur les chiffres ne conduit pas à rejeter l'hypothèse d'uniformité. Le gap test met en évidence une p-value inférieure à $5\%$ pour le chiffre 4, mais ce résultat isolé doit être interprété dans le contexte de tests multiples et d'un échantillon très grand.
+Les tests réalisés sur les décimales de $\pi$ donnent des résultats globalement compatibles avec une répartition uniforme des chiffres et avec le modèle attendu pour les écarts entre occurrences. Le test du $\chi^2$ sur les chiffres ne conduit pas à rejeter l'hypothèse d'uniformité. Le gap test met en évidence une p-value inférieure à $5\%$ pour le chiffre 4, et le test KS donne également une p-value inférieure à $5\%$ pour $k=7$. Ces deux rejets isolés doivent être interprétés dans le contexte de tests multiples, de grands échantillons et de la sensibilité des tests statistiques.
 
 Le générateur construit à partir de $\pi$ est simple et explicite : il utilise des blocs non chevauchants de $k=6$ chiffres, transformés en entiers puis normalisés dans $[0,1[$. Pour ce choix de $k$, les tests du $\chi^2$, de Kolmogorov--Smirnov et du gap test donnent des résultats compatibles avec une loi uniforme. La comparaison avec \texttt{random.random()} montre des conclusions similaires sur l'échantillon étudié.
 
