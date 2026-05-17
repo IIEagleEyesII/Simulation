@@ -1,28 +1,160 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a4paper]{report}
 
+% =========================================================
+% PACKAGES
+% =========================================================
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[french]{babel}
-\usepackage{lmodern}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\usepackage[english]{babel}
+\usepackage[top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
 \usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{geometry}
+\usepackage{xparse}
+\usepackage{xcolor}
 \usepackage{float}
+\usepackage[skip=4pt]{caption}
 \usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{microtype}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\usepackage{lmodern}
 \geometry{margin=2.5cm}
 \graphicspath{{figures/}{figures/gap_tests/}}
 
-\title{Étude statistique des décimales de $\pi$ et construction d'un générateur uniforme}
-\author{}
-\date{}
+\definecolor{umons-red}{RGB}{190,30,45}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 
+% Robust figure inclusion: the document still compiles when an image is missing.
+\NewDocumentCommand{\safeincludegraphics}{O{} m}{%
+    \IfFileExists{#2}{%
+        \includegraphics[#1]{#2}%
+    }{%
+        \fbox{\parbox{0.82\linewidth}{\centering\vspace{0.45cm}
+        Missing image: \texttt{\detokenize{#2}}\vspace{0.45cm}}}%
+    }%
+}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{umons-red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    breaklines=true,
+    frame=single,
+    language=Python
+}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=umons-red
+}
+
+\setlength{\cftbeforesecskip}{4pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Simulation}
+\fancyhead[R]{\small Rapport}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+\usepackage{titlesec}
+
+\titleclass{\chapter}{straight}
+
+\titleformat{\chapter}
+  {\normalfont\huge\bfseries}
+  {\thechapter}
+  {0.5em}
+  {}
+
+\titlespacing*{\chapter}{0pt}{1.5ex}{1ex}
+\titlespacing*{\section}{0pt}{1ex}{0.5ex}
+\titlespacing*{\section}{0pt}{0.8ex}{0.3ex}
+\titlespacing*{\subsection}{0pt}{0.5ex}{0.2ex}
+
+\setlength{\textfloatsep}{8pt}
+\setlength{\floatsep}{6pt}
+\setlength{\intextsep}{6pt}
+
+\renewcommand{\arraystretch}{1.05}
+
+\setlist{nosep}
+
+% =========================================================
+% DOCUMENT
+% =========================================================
 \begin{document}
 
-\maketitle
+% =========================================================
+% TITLE PAGE
+% =========================================================
+\begin{titlepage}
+    \centering
 
-\section{Introduction}
+{\Large University of Mons}\\[0.2cm]
+{\Large Faculty of Science}\\[0.2cm]
+{\Large Computer Science}\\[2.5cm]
+
+\begin{center}
+\rule{0.65\textwidth}{0.4pt}
+
+\vspace{0.8cm}
+
+    {\LARGE\bfseries
+    Étude du caractère pseudo-aléatoire\\
+    des décimales de $\pi$
+    }
+
+    \vspace{0.8cm}
+
+    \rule{0.65\textwidth}{0.4pt}
+
+    \vspace{2.2cm}
+\end{center}
+
+    \begin{minipage}[t]{0.45\textwidth}
+        \raggedright
+        \large \textit{Professeur:}\\
+        Alain BUYS\\[0.5cm]
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \raggedleft
+        \large \textit{Autheurs:}\\
+        \large Achraf Atoini\\
+        \large Abde-Alrahmane Mahrous\\
+    \end{minipage}
+
+    \vfill
+
+    \safeincludegraphics[width=0.72\textwidth]{figures/UMONS/logo_umons.png}
+
+    \vspace{1cm}
+    {\Large Academic year 2025--2026}
+\end{titlepage}
+
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+\chapter{Introduction}
 
 L'objectif de ce projet est d'étudier expérimentalement si les décimales de $\pi$ présentent des propriétés compatibles avec celles d'une suite pseudo-aléatoire. L'étude porte d'abord directement sur les chiffres décimaux de $\pi$, puis sur un générateur uniforme construit à partir de ces chiffres.
 
@@ -30,9 +162,9 @@ Le générateur proposé reste volontairement simple : les décimales sont déco
 
 Les tests utilisés sont le test du $\chi^2$, le test de Kolmogorov--Smirnov et le gap test. Dans tout le rapport, le seuil de décision est fixé à $5\%$. Une p-value faible conduit à rejeter l'hypothèse nulle au seuil choisi ; une p-value élevée signifie seulement que les observations sont compatibles avec cette hypothèse, et non que l'hypothèse est démontrée.
 
-\section{Rappels théoriques}
+\chapter{Rappels théoriques}
 
-\subsection{Test du $\chi^2$}
+\chapter{Test du $\chi^2$}
 
 Le test du $\chi^2$ compare des effectifs observés $O_i$ à des effectifs attendus $E_i$. La statistique utilisée est
 \[
@@ -40,7 +172,7 @@ Le test du $\chi^2$ compare des effectifs observés $O_i$ à des effectifs atten
 \]
 Dans ce projet, il est utilisé de deux manières : sur les chiffres $0,\ldots,9$ des décimales de $\pi$, puis sur des classes de même largeur de l'intervalle $[0,1[$ pour les générateurs.
 
-\subsection{Test de Kolmogorov--Smirnov}
+\chapter{Test de Kolmogorov--Smirnov}
 
 Le test de Kolmogorov--Smirnov compare la fonction de répartition empirique $F_n$ à la fonction de répartition théorique $F$. Sa statistique est
 \[
@@ -48,7 +180,7 @@ D_n = \sup_x |F_n(x)-F(x)|.
 \]
 Pour une loi uniforme sur $[0,1[$, on a $F(x)=x$ sur cet intervalle. Ce test est adapté aux variables continues. Il est donc pertinent pour les valeurs générées dans $[0,1[$, mais moins adapté lorsque $k$ est très petit, car les valeurs possibles sont alors très discrètes.
 
-\subsection{Gap test}
+\chapter{Gap test}
 
 Le gap test étudie les longueurs des écarts entre deux occurrences successives d'un événement. Si l'événement a une probabilité $p$ et si les observations sont indépendantes, la longueur $G$ d'un écart suit le modèle
 \[
@@ -60,13 +192,13 @@ Pour les chiffres de $\pi$, l'événement est l'apparition d'un chiffre cible, a
 \]
 ce qui donne également $p=0{,}1$. Les écarts de longueur supérieure ou égale à 18 sont regroupés dans une dernière classe afin d'obtenir des effectifs suffisants.
 
-\section{Étude directe des décimales de $\pi$}
+\chapter{Étude directe des décimales de $\pi$}
 
-\subsection{Données utilisées}
+\chapter{Données utilisées}
 
 Le script lit le fichier contenant les décimales de $\pi$, supprime les caractères non numériques et retire le premier chiffre 3 afin de ne conserver que les décimales. L'étude est réalisée sur $1\,000\,000$ décimales.
 
-\subsection{Uniformité des chiffres}
+\chapter{Uniformité des chiffres}
 
 L'hypothèse nulle du test du $\chi^2$ est que les dix chiffres $0,\ldots,9$ apparaissent avec la même probabilité. Les résultats sont donnés dans le tableau \ref{tab:digits_chi2}.
 
@@ -92,7 +224,7 @@ Au seuil de $5\%$, on ne rejette pas $H_0$. Les fréquences observées sont donc
 \label{fig:chi_squared_digits}
 \end{figure}
 
-\subsection{Gap test sur les chiffres}
+\chapter{Gap test sur les chiffres}
 
 Le gap test est appliqué à chacun des dix chiffres cibles. Le tableau \ref{tab:gap_digits} résume les p-values obtenues.
 
@@ -148,9 +280,9 @@ Le seul rejet au seuil de $5\%$ concerne le chiffre 4. Cette observation doit ê
 \label{fig:gap_digits_summary}
 \end{figure}
 
-\section{Construction du générateur uniforme basé sur $\pi$}
+\chapter{Construction du générateur uniforme basé sur $\pi$}
 
-\subsection{Définition du générateur}
+\chapter{Définition du générateur}
 
 Soit $k$ la taille d'un bloc. Les décimales de $\pi$ sont découpées en blocs non chevauchants :
 \[
@@ -166,7 +298,7 @@ U_i = \frac{B_i}{10^k}.
 \]
 Ainsi, $U_i \in [0,1[$. Dans les comparaisons principales, le code utilise $k=6$, ce qui produit $166\,666$ valeurs à partir du million de décimales disponibles.
 
-\subsection{Influence de la taille des blocs}
+\chapter{Influence de la taille des blocs}
 
 Le test de Kolmogorov--Smirnov est appliqué pour $k=1,\ldots,9$. Les résultats sont donnés dans le tableau \ref{tab:ks_by_k} et les figures \ref{fig:ks_by_k}.
 
@@ -210,7 +342,7 @@ Pour $k=1$ et $k=2$, les valeurs générées ne peuvent prendre qu'un petit nomb
 \label{fig:ks_by_k}
 \end{figure}
 
-\subsection{Interprétation des rejets isolés}
+\chapter{Interprétation des rejets isolés}
 
 Deux résultats particuliers méritent une discussion : le gap test pour le chiffre cible 4 donne une p-value de 0.027408, et le test de Kolmogorov--Smirnov pour la taille de bloc $k=7$ donne une p-value de 0.022159. Dans les deux cas, la p-value est inférieure au seuil de $5\%$, donc on rejette $H_0$ pour le test considéré.
 
@@ -224,11 +356,11 @@ Enfin, les tests ne mesurent pas exactement la même propriété. Le $\chi^2$ su
 
 Ces deux p-values doivent donc être présentées comme des anomalies locales ou des fluctuations statistiques possibles, et non comme une preuve d'un comportement non pseudo-aléatoire. L'interprétation globale repose sur l'ensemble des tests, pas sur une seule p-value isolée.
 
-\section{Comparaison avec \texttt{random.random()} de Python}
+\chapter{Comparaison avec \texttt{random.random()} de Python}
 
 Le générateur basé sur $\pi$ avec $k=6$ est comparé à \texttt{random.random()} de Python. Pour rendre la comparaison reproductible, le script fixe la graine de Python à 12345. Les deux générateurs produisent $166\,666$ valeurs.
 
-\subsection{Tests appliqués aux deux générateurs}
+\chapter{Tests appliqués aux deux générateurs}
 
 Les mêmes tests sont appliqués aux deux suites de valeurs : test du $\chi^2$ sur dix classes de même largeur de $[0,1[$, test de Kolmogorov--Smirnov contre la loi uniforme sur $[0,1[$ et gap test sur l'événement $0{,}2 \leq U < 0{,}3$.
 
@@ -273,7 +405,7 @@ Pour les trois tests, les p-values obtenues sont supérieures à $5\%$ pour les 
 \label{fig:comparison_gap}
 \end{figure}
 
-\section{Conclusion}
+\chapter{Conclusion}
 
 Les tests réalisés sur les décimales de $\pi$ donnent des résultats globalement compatibles avec une répartition uniforme des chiffres et avec le modèle attendu pour les écarts entre occurrences. Le test du $\chi^2$ sur les chiffres ne conduit pas à rejeter l'hypothèse d'uniformité. Le gap test met en évidence une p-value inférieure à $5\%$ pour le chiffre 4, et le test KS donne également une p-value inférieure à $5\%$ pour $k=7$. Ces deux rejets isolés doivent être interprétés dans le contexte de tests multiples, de grands échantillons et de la sensibilité des tests statistiques.
 
