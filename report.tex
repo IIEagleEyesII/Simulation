@@ -164,7 +164,7 @@ Les tests utilisés sont le test du $\chi^2$, le test de Kolmogorov--Smirnov et 
 
 \chapter{Rappels théoriques}
 
-\chapter{Test du $\chi^2$}
+\section{Test du $\chi^2$}
 
 Le test du $\chi^2$ compare des effectifs observés $O_i$ à des effectifs attendus $E_i$. La statistique utilisée est
 \[
@@ -172,7 +172,7 @@ Le test du $\chi^2$ compare des effectifs observés $O_i$ à des effectifs atten
 \]
 Dans ce projet, il est utilisé de deux manières : sur les chiffres $0,\ldots,9$ des décimales de $\pi$, puis sur des classes de même largeur de l'intervalle $[0,1[$ pour les générateurs.
 
-\chapter{Test de Kolmogorov--Smirnov}
+\section{Test de Kolmogorov--Smirnov}
 
 Le test de Kolmogorov--Smirnov compare la fonction de répartition empirique $F_n$ à la fonction de répartition théorique $F$. Sa statistique est
 \[
@@ -180,7 +180,7 @@ D_n = \sup_x |F_n(x)-F(x)|.
 \]
 Pour une loi uniforme sur $[0,1[$, on a $F(x)=x$ sur cet intervalle. Ce test est adapté aux variables continues. Il est donc pertinent pour les valeurs générées dans $[0,1[$, mais moins adapté lorsque $k$ est très petit, car les valeurs possibles sont alors très discrètes.
 
-\chapter{Gap test}
+\section{Gap test}
 
 Le gap test étudie les longueurs des écarts entre deux occurrences successives d'un événement. Si l'événement a une probabilité $p$ et si les observations sont indépendantes, la longueur $G$ d'un écart suit le modèle
 \[
@@ -194,11 +194,11 @@ ce qui donne également $p=0{,}1$. Les écarts de longueur supérieure ou égale
 
 \chapter{Étude directe des décimales de $\pi$}
 
-\chapter{Données utilisées}
+\section{Données utilisées}
 
 Le script lit le fichier contenant les décimales de $\pi$, supprime les caractères non numériques et retire le premier chiffre 3 afin de ne conserver que les décimales. L'étude est réalisée sur $1\,000\,000$ décimales.
 
-\chapter{Uniformité des chiffres}
+\section{Uniformité des chiffres}
 
 L'hypothèse nulle du test du $\chi^2$ est que les dix chiffres $0,\ldots,9$ apparaissent avec la même probabilité. Les résultats sont donnés dans le tableau \ref{tab:digits_chi2}.
 
@@ -224,7 +224,7 @@ Au seuil de $5\%$, on ne rejette pas $H_0$. Les fréquences observées sont donc
 \label{fig:chi_squared_digits}
 \end{figure}
 
-\chapter{Gap test sur les chiffres}
+\section{Gap test sur les chiffres}
 
 Le gap test est appliqué à chacun des dix chiffres cibles. Le tableau \ref{tab:gap_digits} résume les p-values obtenues.
 
@@ -282,7 +282,7 @@ Le seul rejet au seuil de $5\%$ concerne le chiffre 4. Cette observation doit ê
 
 \chapter{Construction du générateur uniforme basé sur $\pi$}
 
-\chapter{Définition du générateur}
+\section{Définition du générateur}
 
 Soit $k$ la taille d'un bloc. Les décimales de $\pi$ sont découpées en blocs non chevauchants :
 \[
@@ -298,7 +298,7 @@ U_i = \frac{B_i}{10^k}.
 \]
 Ainsi, $U_i \in [0,1[$. Dans les comparaisons principales, le code utilise $k=6$, ce qui produit $166\,666$ valeurs à partir du million de décimales disponibles.
 
-\chapter{Influence de la taille des blocs}
+\section{Influence de la taille des blocs}
 
 Le test de Kolmogorov--Smirnov est appliqué pour $k=1,\ldots,9$. Les résultats sont donnés dans le tableau \ref{tab:ks_by_k} et les figures \ref{fig:ks_by_k}.
 
@@ -342,7 +342,7 @@ Pour $k=1$ et $k=2$, les valeurs générées ne peuvent prendre qu'un petit nomb
 \label{fig:ks_by_k}
 \end{figure}
 
-\chapter{Interprétation des rejets isolés}
+\section{Interprétation des rejets isolés}
 
 Deux résultats particuliers méritent une discussion : le gap test pour le chiffre cible 4 donne une p-value de 0.027408, et le test de Kolmogorov--Smirnov pour la taille de bloc $k=7$ donne une p-value de 0.022159. Dans les deux cas, la p-value est inférieure au seuil de $5\%$, donc on rejette $H_0$ pour le test considéré.
 
@@ -360,7 +360,7 @@ Ces deux p-values doivent donc être présentées comme des anomalies locales ou
 
 Le générateur basé sur $\pi$ avec $k=6$ est comparé à \texttt{random.random()} de Python. Pour rendre la comparaison reproductible, le script fixe la graine de Python à 12345. Les deux générateurs produisent $166\,666$ valeurs.
 
-\chapter{Tests appliqués aux deux générateurs}
+\section{Tests appliqués aux deux générateurs}
 
 Les mêmes tests sont appliqués aux deux suites de valeurs : test du $\chi^2$ sur dix classes de même largeur de $[0,1[$, test de Kolmogorov--Smirnov contre la loi uniforme sur $[0,1[$ et gap test sur l'événement $0{,}2 \leq U < 0{,}3$.
 
