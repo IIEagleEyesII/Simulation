@@ -1,0 +1,17 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Rappels théoriques}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Test du $\chi ^2$}{2}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Test de Kolmogorov--Smirnov}{2}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Gap test}{2}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Étude directe des décimales de $\pi $}{3}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Données utilisées}{3}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Uniformité des chiffres}{3}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Gap test sur les chiffres}{3}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Construction du générateur uniforme basé sur $\pi $}{5}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Définition du générateur}{5}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Influence de la taille des blocs}{5}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Interprétation des rejets isolés}{6}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Comparaison avec \texttt {random.random()} de Python}{7}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Tests appliqués aux deux générateurs}{7}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Conclusion}{9}{chapter.6}%

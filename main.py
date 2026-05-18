@@ -383,7 +383,7 @@ def plot_digit_frequencies(observed, expected_each, statistic, p_value):
         plt.text(
             digit,
             y_position,
-            f"ecart={difference:+.0f}",
+            f"{difference:+.0f}",
             ha="center",
             va=vertical_alignment,
             fontsize=8,
